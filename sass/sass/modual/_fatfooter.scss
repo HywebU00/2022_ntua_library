@@ -1,0 +1,135 @@
+.fatfooter {
+    @extend %clearfix;
+    overflow: hidden;
+    padding-bottom: 1em;
+    margin: 0 auto;
+    background: $fatfooterBgColor url(../images/fatfooter_bg.jpg) no-repeat center;
+    background-size: cover;
+    @include screen('mobile') {
+        display: none;
+    }
+    .container {
+        overflow: hidden;
+        box-sizing: border-box;
+        @include gutter;
+    }
+    // 按鈕
+    .btn-fatfooter {
+        font-size: .813em;
+        display: block;
+        min-width: 6em;
+        color: #FFF;
+        border: none;
+        background: rgba(255, 255, 255, .2);
+        position: absolute;
+        right: 1%;
+        z-index: 90;
+        text-indent: -9999px;
+        border-radius: 4px;
+        &:before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 2px solid #FFF;
+            border-left: none;
+            border-bottom: none;
+            transform: rotate(-45deg);
+            left: 50%;
+            top: 12px;
+            margin-left: -6px;
+            transition: .3s ease-out;
+        }
+        &:hover,
+        &:focus {
+            background: $aHover;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            border: none;
+            cursor: pointer;
+        }
+        &.close {
+            &:before {
+                transform: rotate(135deg) !important;
+                top: 5px;
+            }
+        }
+    }
+    nav {
+        overflow: hidden;
+        display: block;
+        position: relative;
+        padding: 3em 0 0 0;
+        box-sizing: border-box;
+        >ul>li {
+            >a {
+                &::after {
+                    content: "";
+                    // position: absolute;
+                    // left: calc(50% - 56px);
+                    // bottom: 0;
+                    display: block;
+                    height: 3px;
+                    width: 70px;
+                    background-color: #F6A050;
+                    margin: 5px auto 0;
+                }
+            }
+        }
+        ul {
+            display: flex;
+            padding: 0 .5em;
+            @include li-reset;
+            li {
+                flex: 1 1 16%;
+                box-sizing: border-box;
+                a {
+                    line-height: 1.5;
+                    display: block;
+                    font-weight: bold;
+                    padding: .5em 0px 1em 0;
+                    box-sizing: border-box;
+                    color: $color-word;
+                    text-align: center;
+                    &:hover,
+                    &:focus {
+                        box-shadow: none;
+                        color: $aHover
+                    }
+                }
+                ul {
+                    // display: flex;
+                    // flex-direction:column;
+                    // flex-wrap:wrap;
+                    display: block;
+                    margin: 0;
+                    @include screen('mobile') {
+                        width: auto;
+                    }
+                    li {
+                        // flex: 0 0 100%;
+                        a {
+                            display: block;
+                            @include aSetting_nocolor;
+                            font-weight: normal;
+                            text-align: left;
+                            font-size: .938em;
+                            line-height: 1.5em;
+                            padding: .5em 0;
+                            background: none;
+                            text-align: center;
+                        }
+                    }
+                    //第三層關閉
+                    ul {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

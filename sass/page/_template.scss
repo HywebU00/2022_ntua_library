@@ -1,0 +1,930 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: lighten($linkColor, 5);
+    &.noscroll {
+        position: static !important;
+        width: 100%;
+        height: 100%;
+        overflow: hidden !important;
+        overflow-y: hidden !important;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+// 最外圍預設為100%
+.wrapper {
+    max-width: 1400px;
+    margin: 0px auto;
+    position: relative;
+    background-color: $color-bg;
+    @include screen('mobile') {
+        background: #FFF;
+        overflow: hidden;
+        overflow-y: auto;
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        display: block;
+        width: calc((100% - 1400px) / 2 + 350px);
+        //min-width: 300px;
+        height: 1120px;
+        right: 0;
+        top: -150px;
+        background: url(../images/bg.png);
+        background-size: 100px;
+        @media screen and (max-width: 1399px) {
+            width: 350px;
+        }
+        @include screen('mobile') {
+            width: 120px;
+            height: 500px;
+        }
+    }
+}
+
+// 整體共用container樣式，請注意首頁切版頁面的整齊
+.container {
+    padding: 0;
+    margin: 0 auto;
+    max-width: $container-max; //請看_variable.scss
+    @media screen and (max-width: 1200px) {
+        padding: 0 15px;
+    }
+}
+
+.main {
+    position: relative;
+    margin: 0 auto;
+    @include screen('mobile') {
+        margin-top: 60px;
+    }
+    // 可先設定一個中央區塊最大寬，限制accesskey對齊
+    h2 {
+        line-height: 1.25em;
+    }
+}
+
+////////////////////////////////////////////////////////////
+// 為了與首頁區隔，請在內頁加上innerpage ClassName
+.innerpage {
+    >.container {
+        @include gutter(); //gutter 代表左右要留白
+        display: flex;
+        padding-top: 1em;
+    }
+    .center_block {
+        flex: none;
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+    .left_block {
+        flex: none;
+        flex-basis: 260px;
+        max-width: 260px;
+        margin-right: 40px;
+        &.hidden {
+            +.center_block {
+                flex: none;
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+        +.center_block {
+            flex: auto;
+            flex-basis: calc(100% - 300px);
+            max-width: calc(100% - 300px);
+        }
+        @include screen('tablet') {
+            display: none;
+            +.center_block {
+                flex: none;
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+    &.small_size {
+        font-size: .938em;
+    }
+    &.large_size {
+        font-size: 1.125em;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+//主畫面 搜尋頁籤
+.search_tab {
+    margin: 0 auto;
+}
+
+//主畫面 搜尋框區塊
+.searchBlock {
+    .form_grp {
+        flex: 1 1 auto;
+        margin-right: 0;
+        input[type="text"] {
+            flex: 1 1 auto;
+            background-color: $lightColor;
+            border: 0;
+        }
+        input[type="submit"] {
+            min-width: 98px;
+            background-color: $primaryColor;
+            border: 0;
+        }
+    }
+    p {
+        margin: 1em .3em;
+        font-size: .938em;
+    }
+}
+
+//讀者專區 樣式一
+//一開始為display:none狀態 click 讀者登入button 或 讀者名稱後display:block
+.nav_reader {
+    position: relative;
+    float: right;
+    @include screen('mobile') {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 60px;
+        height: 100%;
+    }
+    .reader_btn-1,
+    .reader_btn-2 {
+        border: 0;
+        background: $primaryColor;
+        min-width: 130px;
+        &:hover {
+            background: $aHover;
+        }
+        @include screen('mobile') {
+            padding: 0;
+            width: 60px;
+            min-width: 60px;
+            max-width: 60px;
+            height: 60px;
+            font-size: 0;
+            background: #fff url(../images/icon/icon_man.svg) no-repeat center;
+            background-size: 30px;
+            border-radius: 0;
+            &:hover {
+                background: #fff url(../images/icon/icon_man.svg) no-repeat center;
+            }
+        }
+    }
+}
+
+.nav_readerArea-1,
+.nav_readerArea-2 {
+    min-height: 68px;
+    background: $color-lightgray;
+    color: $color-word;
+    padding: 1.5em 1.5em 1em;
+    overflow: hidden;
+    font-size: .938em;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .4);
+    position: fixed;
+    right: calc((100% - 1370px) / 2);
+    top: auto;
+    z-index: 100;
+    width: 280px;
+    //display: none;
+    @media screen and (max-width: 1200px) {
+        right: 15px;
+    }
+    @include screen('mobile') {
+        padding: 1.2em 1.6em;
+        top: 60px;
+        right: 0;
+        width: 100%;
+    }
+    .close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        width: 30px !important;
+        min-width: auto;
+        height: 30px;
+        font-size: 0em;
+        border: none;
+        display: block;
+        padding: 0;
+        background: url(../images/basic/icon_close.svg) no-repeat center center;
+    }
+    .reader_name {
+        font-weight: bold;
+        font-size: 1.125em;
+    }
+    ul {
+        padding: 0 10px;
+        margin: 0;
+        display: inline-block;
+        vertical-align: middle;
+        @include screen('mobile') {
+            margin: .5em 0;
+        }
+        li {
+            position: relative;
+            margin: .7em 10px;
+            padding-left: 20px;
+            list-style: none;
+            &:before {
+                content: "";
+                position: absolute;
+                width: 8px;
+                height: 8px;
+                background-color: $lightColor;
+                left: 0;
+                top: calc(50% - 4px);
+            }
+            &.important {
+                span {
+                    background: $importantColor;
+                    color: #fff;
+                }
+            }
+            span {
+                margin: 0 .312em;
+                min-width: 18px;
+                height: 18px;
+                border-radius: .31em;
+                display: inline-block;
+                text-align: center;
+                font-family: Georgia;
+                font-weight: bold;
+                line-height: 1;
+                vertical-align: top;
+                margin-top: 2px;
+            }
+        }
+    }
+    input,
+    label {
+        margin: 0 5px 0 0;
+    }
+    .form_grp {
+        margin-top: 3px;
+    }
+    .form_grp,
+    .check_grp {
+        @include screen('mobile') {
+            padding-bottom: .5em;
+        }
+    }
+    .btn_grp {
+        margin: 0;
+        display: block;
+        @include screen('mobile') {
+            float: none;
+            display: block;
+        }
+        button {
+            position: relative;
+            box-sizing: border-box;
+            color: #fff;
+            text-shadow: none;
+            padding: 0 .5em;
+            transition: all .3s;
+        }
+        .my_study {
+            background: $primaryColor;
+            border: none;
+            padding: .5em 1.2em;
+            min-width: 90px;
+            display: inline-block;
+            &:hover {
+                background: darken($primaryColor, 10);
+            }
+        }
+        .loginout {
+            background: $secondaryColor;
+            border: none;
+            padding: .5em 1.2em;
+            min-width: 90px;
+            display: inline-block;
+            &:hover {
+                background: darken($secondaryColor, 10);
+            }
+        }
+    }
+}
+
+//讀者專區 樣式二
+.reader_area {
+    min-height: 68px;
+    background: $lightColor;
+    color: $color-word;
+    padding: .8em 1.6em;
+    overflow: hidden;
+    margin-top: .5em;
+    font-size: .938em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    @include screen('mobile') {
+        padding: .8em 15px;
+    }
+    .reader_infolist {
+        display: flex;
+        align-items: center;
+        @include screen('mobile') {
+            flex-wrap: wrap;
+        }
+    }
+    .reader_name {
+        font-weight: bold;
+        font-size: 1.125em;
+    }
+    ul {
+        padding: 0 10px;
+        margin: 0;
+        display: flex;
+        vertical-align: middle;
+        flex-wrap: wrap;
+        li {
+            position: relative;
+            margin: .7em 10px;
+            padding-left: 25px;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            &:before {
+                content: "";
+                position: absolute;
+                width: 1px;
+                height: 1em;
+                background-color: #fff;
+                left: 0;
+                top: .35em;
+                opacity: .85;
+            }
+            &.important {
+                span {
+                    background: $importantColor;
+                    color: #fff;
+                }
+            }
+            span {
+                margin: 0 .3em;
+                min-width: 18px;
+                padding: 0 2px;
+                height: 18px;
+                border-radius: .3em;
+                display: inline-block;
+                text-align: center;
+                font-family: Georgia;
+                font-weight: bold;
+                line-height: 1em;
+            }
+        }
+    }
+    input,
+    label {
+        margin: 0 5px 0 0;
+    }
+    .form_grp {
+        margin-top: 3px;
+    }
+    .form_grp,
+    .check_grp {
+        @include screen('mobile') {
+            padding-bottom: .5em;
+        }
+    }
+    .btn_grp {
+        padding: 0;
+        margin: 0;
+        @include screen('mobile') {
+            margin: 0 auto;
+        }
+        button {
+            position: relative;
+            height: 36px;
+            box-sizing: border-box;
+            color: #fff;
+            text-shadow: none;
+            padding: 0 1em;
+            transition: all .3s;
+            border: none;
+            &:hover {
+                box-shadow: none;
+            }
+        }
+        .my_study {
+            background: $primaryColor;
+            &:hover {
+                background: darken($primaryColor, 10);
+            }
+        }
+        .loginout_btn {
+            background: $secondaryColor;
+            &:hover {
+                background: darken($secondaryColor, 10);
+            }
+        }
+    }
+}
+
+//近期活動 樣式一
+.activitiesList {
+    ul {
+        border-top: 1px solid $color-gray;
+        @include li-reset;
+    }
+    li {
+        overflow: hidden;
+        padding: .5em;
+        border-bottom: 1px solid $color-gray;
+    }
+    li:nth-child(3n+1) {
+        .activity_date {
+            &:after {
+                background-color: $color-blue;
+            }
+        }
+        .activity_info {
+            .activity_title {
+                &:hover {
+                    color: $color-blue;
+                }
+            }
+        }
+    }
+    li:nth-child(3n+2) {
+        .activity_date {
+            &:after {
+                background-color: $secondaryColor;
+            }
+        }
+        .activity_info {
+            .activity_title {
+                &:hover {
+                    color: $secondaryColor;
+                }
+            }
+        }
+    }
+    li:nth-child(3n+3) {
+        .activity_date {
+            &:after {
+                background-color: $importantColor;
+            }
+        }
+        .activity_info {
+            .activity_title {
+                &:hover {
+                    color: $importantColor;
+                }
+            }
+        }
+    }
+    .activity_date {
+        float: left;
+        font-weight: bold;
+        font-family: "Georgia";
+        color: $color-word;
+        padding: .5em 0;
+        position: relative;
+        border-radius: .31em 0 0 .31em;
+        @include screen('mobile') {
+            border-radius: .31em;
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: -.5em;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 7px;
+            background-color: $secondaryColor;
+        }
+        .year {
+            display: block;
+            font-size: 1.25em;
+        }
+        .day {
+            display: inline-block;
+            font-size: 1.875em;
+            margin-top: .25em;
+            letter-spacing: 1px;
+        }
+    }
+    .activity_info {
+        margin-left: 120px;
+        @include screen('mobile') {
+            margin-left: 125px;
+        }
+        a,
+        time {
+            display: block;
+        }
+        .activity_title {
+            color: $color-word;
+            font-weight: bold;
+            font-size: 1.125em;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            transition: all .2s;
+            padding: .5em 0;
+            &:hover {
+                color: darken($primaryColor, 10);
+            }
+            @include screen('mobile') {
+                white-space: normal;
+            }
+        }
+        time {
+            color: lighten($color-word, 10);
+            padding: .25em 0;
+            font-size: 1em;
+            display: inline-block;
+            font-family: "Georgia";
+            font-weight: bold;
+            @include screen('mobile') {
+                display: block;
+            }
+        }
+        .activity_location {
+            color: #fff;
+            font-size: .938em;
+            display: inline-block;
+            padding: .2em .8em;
+            margin: .25em 0;
+            float: right;
+            background-color: $primaryColor;
+            transition: all .3s;
+            &:hover {
+                background-color: darken($primaryColor, 10);
+            }
+            @include screen('mobile') {
+                float: none;
+            }
+        }
+    }
+}
+
+//近期活動 樣式二
+.activitiesBlock {
+    display: flex;
+    margin-bottom: 1em;
+    .img-container {
+        flex-basis: 50%;
+        max-width: 50%;
+        @include aspect-ratio(2, 1);
+        @include screen('mobile') {
+            flex-basis: 100%;
+            max-width: 100%;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+    .activity_content {
+        flex-basis: 50%;
+        padding: 0 15px 0 30px;
+        @include screen('mobile') {
+            padding: 1em 0;
+        }
+        .activity_title {
+            display: flex;
+            align-items: center;
+        }
+        .time {
+            width: 80px;
+            height: 80px;
+            background: $secondaryColor;
+            color: #fff;
+            display: inline-flex;
+            align-items: stretch;
+            justify-content: center;
+            flex-wrap: wrap;
+            font-weight: bold;
+            padding: .5em .8em;
+            box-sizing: border-box;
+            font-family: "Georgia";
+            span {
+                width: 100%;
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                align-content: center;
+                align-items: center;
+                &:first-child {
+                    border-bottom: 1px solid #fff;
+                }
+            }
+        }
+        h3 {
+            flex: 0 0 calc(100% - 80px);
+            max-height: 80px;
+            padding: 0 1em;
+            margin: 0;
+            line-height: 1.8;
+            display: -webkit-box;
+            align-items: center;
+            align-content: center;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        p {
+            max-height: 80px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .location_tag {
+            float: right;
+            font-size: .875em;
+            color: $color-word;
+            background: $color-lightgray;
+            padding: .2em .8em;
+            display: inline-block;
+        }
+    }
+}
+
+//分類查找 tabs
+.category_tabs {
+    >.tabItem {
+        background: none;
+        color: $color-word;
+        border: none;
+        border-radius: 0;
+        position: relative;
+        @include screen('mobile') {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid $lightColor;
+        }
+        img {
+            width: 80px;
+            height: 60px;
+            @include screen('mobile') {
+                width: 40px;
+                margin-right: 1em;
+            }
+        }
+        &.active,
+        &:hover,
+        &:focus {
+            background: none;
+            color: $color-word;
+            box-shadow: none;
+            @include screen('mobile') {
+                border-bottom: 1px solid $lightColor;
+            }
+            &:after {
+                content: "";
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: calc(50% - 80px);
+                width: 160px;
+                height: 4px;
+                max-width: 100%;
+                background: $lightColor;
+                @include screen('mobile') {
+                    width: 100%;
+                    left: 0;
+                }
+            }
+        }
+        .tabItem_name {
+            display: block;
+            margin: 1em 0;
+        }
+    }
+}
+
+//分類查找
+.category_data {
+    ul {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    li {
+        flex-shrink: 0;
+        flex-basis: calc(25% - 1em);
+        padding: 0;
+        border: 1px solid $secondaryColor;
+        margin: 0 .5em 1em .5em;
+        text-align: center;
+        @include screen('mobile') {
+            flex-basis: calc(50% - 1em);
+        }
+    }
+    .data_title {
+        font-size: 1em;
+        text-align: center;
+        padding: .5em;
+        margin: 0;
+        color: #fff;
+        background: $secondaryColor;
+    }
+    .amount {
+        font-weight: bold;
+        font-size: 1.25em;
+        padding: 1em;
+    }
+}
+
+//分類查找 第二層分類標籤
+.subCategory_grp {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    li {
+        margin: .25em;
+        border: none;
+        a {
+            display: block;
+            padding: .5em 1.5em;
+            background: $color-gray;
+            color: #020202;
+            transition: .3s ease-in;
+            &:hover {
+                background: $secondaryColor;
+                color: #fff;
+            }
+        }
+    }
+}
+
+//豬鼻子月曆 樣式調整
+.pignose-calendar {
+    width: 100%;
+    max-width: 100%;
+    border: none;
+    box-shadow: none;
+    .pignose-calendar-top {
+        padding: 1.5em 0;
+        box-shadow: none;
+        .pignose-calendar-top-date {
+            padding: .8em 0;
+        }
+    }
+    .pignose-calendar-header {
+        margin-top: 0;
+        padding: 0 1em;
+        .pignose-calendar-week {
+            &.pignose-calendar-week-sat,
+            &.pignose-calendar-week-sun {
+                //color: $color-calendar;
+            }
+        }
+    }
+    .pignose-calendar-body {
+        padding: 0 1em;
+    }
+    .pignose-calendar-unit {
+        height: 3.2em;
+        line-height: 1.5em;
+        position: relative;
+        z-index: 50;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        a {
+            position: relative;
+            z-index: 40;
+            color: #555;
+            width: 2.5em;
+            height: 2.5em;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &.pignose-calendar-unit-active {
+            a {
+                background: $primaryColor;
+                box-shadow: none;
+                color: #fff;
+            }
+        }
+        &.pignose-calendar-unit-sat,
+        &.pignose-calendar-unit-sun {
+            a {
+                color: #555;
+            }
+        }
+        //
+        &.pignose-calendar-unit-disabled {
+            a {
+                opacity: 1;
+                background: $color-lightgray
+            }
+        }
+        .pignose-calendar-button-schedule-container {
+            .pignose-calendar-button-schedule-pin {
+                width: 2.4em;
+                height: 2.4em;
+                position: absolute;
+                left: 5%;
+                top: 0;
+                border: 1px solid $primaryColor;
+            }
+        }
+    }
+    .pignose-calendar-top {
+        padding: 1em 0;
+        .pignose-calendar-top-date {
+            padding: 1em 0;
+            .pignose-calendar-top-month,
+            .pignose-calendar-top-year {
+                display: inline-block;
+            }
+            .pignose-calendar-top-year {
+                //color: $color-word-light;
+            }
+        }
+    }
+}
+
+//活動申請表單
+.apply_form {
+    margin: 0 auto;
+    @include screen('mobile') {
+        width: 100%;
+    }
+    input {
+        border: 1px solid #ccc;
+        background: #fff;
+    }
+    select {
+        width: auto;
+        min-width: 100px;
+    }
+    .form_grid {
+        .btn_grp {
+            margin: 1em 0;
+        }
+    }
+}
+
+.apply_result {
+    margin-bottom: 2em;
+    td {
+        text-align: center;
+    }
+    .name {
+        text-align: left;
+    }
+}
+
+//
+.participant {
+    clear: both;
+    //border:1px solid $color-gray;
+    padding: .5em 2em;
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    li {
+        border-bottom: 1px dashed #DDD;
+        padding: 1em 0;
+    }
+    .result_title {
+        display: inline-block;
+        min-width: 150px;
+        @include screen('xs_mobile') {
+            &:after {
+                content: "：";
+            }
+        }
+    }
+    .result_content {
+        display: inline-block;
+        color: darken($primaryColor, 10);
+        @include screen('xs_mobile') {
+            display: block;
+        }
+    }
+}

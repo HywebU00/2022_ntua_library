@@ -1,0 +1,188 @@
+footer {
+    @include box-sizing(border-box);
+    @include clearfix;
+    text-align: left;
+    padding: 1em 0 0 0;
+    background: $color_bg url(../images/footer_bg.png) no-repeat right bottom 50px;
+    background-size: 400px;
+    border-top: 1px solid $color-lightgray;
+    .container {
+        @include gutter;
+        // >div {
+        //     padding-bottom: 1em;
+        // }
+    }
+    .accesskey {
+        color: #fff;
+    }
+    a {
+        text-decoration: none;
+        color: #fff;
+        &:hover,
+        &:focus {
+            color: darken($primaryColor, 10);
+        }
+    }
+    .footer_logo {
+        @include make-xs-column(8);
+        @include make-sm-column(3);
+        @include make-md-column(3);
+        @include make-lg-column(3);
+        @include gutter();
+    }
+    .footer_info {
+        padding: 10px 20px;
+        margin: 0;
+        opacity: .9;
+        display: flex;
+        flex-wrap: wrap;
+        .footer_left {
+            flex-basis: 70%;
+            @include screen('mobile') {
+                flex-basis: 100%;
+            }
+            >img {
+                width: 350px;
+            }
+            .Copyright {
+                margin-bottom: 40px;
+            }
+        }
+        .footer_right {
+            flex-basis: 30%;
+            @include screen('mobile') {
+                flex-basis: 100%;
+            }
+            label {
+                font-size: 1.25em;
+                position: relative;
+                padding-bottom: 15px;
+                &::before {
+                    content: "";
+                    position: absolute;
+                    display: block;
+                    width: 74px;
+                    height: 3px;
+                    background-color: #F6A050;
+                    bottom: 5px;
+                    left: 0.4em;
+                }
+            }
+            input[type="text"] {
+                background: $color-lightgray;
+                border: 0;
+            }
+            .btn_grp {
+                text-align: left;
+                padding: .5em .3em;
+                .btn {
+                    background: $primaryColor;
+                    border: 0;
+                }
+            }
+        }
+    }
+    // .footer_icon {
+    //     flex-basis: 30%;
+    //     align-self: center;
+    //     @include screen('xs_mobile') {
+    //         flex-basis: 100%;
+    //     }
+    //     ul {
+    //         display: flex;
+    //         justify-content: flex-end;
+    //         @include li-reset;
+    //         @include screen('xs_mobile') {
+    //             justify-content: flex-start;
+    //         }
+    //     }
+    //     li {
+    //         margin-right: .5em;
+    //         a {
+    //             display: block;
+    //             width: 46px;
+    //             height: 46px;
+    //             img {
+    //                 width: 46px;
+    //                 max-width: 46px;
+    //             }
+    //         }
+    //     }
+    // }
+    .footer_bottom {
+        background: $secondaryColor;
+        overflow: hidden;
+        font-size: .875rem;
+        text-align: center;
+        color: #fff;
+        line-height: 50px;
+        height: 50px;
+        @include screen('mobile') {
+            margin: 0;
+        }
+    }
+    // 版權連結
+    .footer_link {
+        @include li-reset();
+        @include clearfix();
+        margin: .5em auto;
+        float: left;
+        li {
+            float: left;
+            display: block;
+            margin: 0px 20px 0 0;
+            @include screen('mobile') {
+                margin-left: 0;
+            }
+            a {
+                display: block;
+                padding: .5em 0;
+                background: none;
+                color: #000;
+                border-radius: 4px;
+                @include transition(all, .3s, ease-out);
+                &:hover,
+                &:focus {
+                    color: $color-word;
+                }
+            }
+        }
+    }
+    p {
+        font-size: 0.837em;
+        line-height: 1.65em;
+        color: #000;
+    }
+    .update,
+    .counter {
+        display: inline-block;
+        margin-right: 5px;
+        em {
+            font-style: normal;
+            color: #000;
+            padding: 0 .5em;
+        }
+    }
+    .footer_icon {
+        a {
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            &:focus {
+                &:after {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    box-shadow: 0px 0px 0px 1px $aHover inset;
+                    z-index: 99;
+                }
+            }
+        }
+        img {
+            max-width: 120px;
+        }
+    }
+}
