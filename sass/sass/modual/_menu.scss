@@ -66,17 +66,18 @@
                 font-size: 1.25em;
                 letter-spacing: 0.03em;
                 position: relative;
-                &:hover {
+                &:hover,
+                &:focus {
                     color: $color-word;
                     &:before {
                         content: "";
                         position: absolute;
                         display: block;
-                        width: 60%;
+                        width: 74px;
                         height: 3px;
                         background-color: $primaryColor;
                         bottom: 5px;
-                        left: 20%;
+                        left: calc(50% - 46px);
                     }
                 }
             }
@@ -90,7 +91,7 @@
                         margin-left: .5em;
                         vertical-align: middle;
                         border: 2px solid lighten($color-word, 40);
-                        transform: rotate(135deg);
+                        transform: rotate(45deg);
                         border-bottom: none;
                         border-left: none;
                         margin-bottom: .2em;
@@ -110,27 +111,27 @@
             ul {
                 display: none;
                 overflow: visible;
-                width: 99%;
-                background: rgba(0, 0, 0, .8);
+                width: 180px;
+                background: $linkColor;
                 padding: 0;
                 z-index: 999999;
                 position: absolute;
-                top: auto;
-                left: 0;
+                top: 1em;
+                left: 100%;
                 list-style: none;
                 text-align: left;
-                animation: showMenu .3s ease-out;
-                font-size: .875em;
+                font-size: 1rem;
                 // 第二層選單樣式
                 li {
                     float: none;
                     a {
                         padding: .6em 1.2em;
-                        color: #FFF;
                         font-weight: bold;
+                        color: $color-word;
                         &:hover,
                         &:focus {
                             background: $aHover;
+                            color: #fff;
                         }
                     }
                 }
@@ -185,6 +186,17 @@
     box-sizing: border-box;
     .menu {
         display: block;
+        >ul {
+            >li {
+                >a {
+                    &:hover {
+                        &:before {
+                            content: none;
+                        }
+                    }
+                }
+            }
+        }
     }
     .navlist {
         ul {
@@ -297,6 +309,8 @@
                         width: 100%;
                         background-color: transparent;
                         font-size: 1em;
+                        left: 0;
+                        top: 0;
                         li {
                             a {
                                 display: block;
@@ -446,9 +460,9 @@
 //animation
 @keyframes showMenu {
     0% {
-        left: 20px;
+        left: 100%;
     }
     100% {
-        left: 0px;
+        left: calc(100% + 20px);
     }
 }
