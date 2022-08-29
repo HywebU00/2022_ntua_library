@@ -23,6 +23,20 @@
     //         display: none;
     //     }
     // }
+    &:before {
+        content: "";
+        position: absolute;
+        right: 350px;
+        bottom: -20px;
+        display: block;
+        width: 350px;
+        height: 180px;
+        background: url(../images/bg03.png) no-repeat bottom right;
+        background-size: cover;
+        @include screen('mobile') {
+            content: none;
+        }
+    }
     // mobile btn for extend
     %mobileCtrlBtn {
         width: 60px !important;
@@ -48,19 +62,9 @@
         padding: 0 15px;
         overflow: visible;
         position: relative; // menu
+        z-index: 200;
         @include screen('mobile') {
             padding: 0;
-        }
-        &:before {
-            content: "";
-            position: absolute;
-            right: 350px;
-            bottom: 0px;
-            display: block;
-            width: 350px;
-            height: 150px;
-            background: url(../images/bg01.png) no-repeat bottom right;
-            background-size: cover;
         }
         .sidebarCtrl {
             display: none;

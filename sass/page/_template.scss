@@ -33,22 +33,39 @@ body {
     &:before {
         content: "";
         position: absolute;
+        right: 0;
+        top: 0px;
         display: block;
         width: calc((100% - 1400px) / 2 + 350px);
-        //min-width: 300px;
-        height: 1120px;
-        right: 0;
-        top: -150px;
-        background: url(../images/bg.png);
-        background-size: 100px;
+        height: 230px;
+        background: url(../images/bg03.png) no-repeat bottom right;
+        background-size: cover;
         @media screen and (max-width: 1399px) {
             width: 350px;
         }
         @include screen('mobile') {
-            width: 120px;
-            height: 500px;
+            content: none;
         }
     }
+    // &:before {
+    //     content: "";
+    //     position: absolute;
+    //     display: block;
+    //     width: calc((100% - 1400px) / 2 + 350px);
+    //     //min-width: 300px;
+    //     height: 1120px;
+    //     right: 0;
+    //     top: -150px;
+    //     background: url(../images/bg.png);
+    //     background-size: 100px;
+    //     @media screen and (max-width: 1399px) {
+    //         width: 350px;
+    //     }
+    //     @include screen('mobile') {
+    //         width: 120px;
+    //         height: 500px;
+    //     }
+    // }
 }
 
 // 整體共用container樣式，請注意首頁切版頁面的整齊
@@ -143,6 +160,10 @@ body {
             min-width: 98px;
             background-color: $primaryColor;
             border: 0;
+            &:hover {
+                background-color: $aHover;
+                color: #fff;
+            }
         }
     }
     p {
@@ -168,8 +189,10 @@ body {
         border: 0;
         background: $primaryColor;
         min-width: 130px;
+        transition: .3s ease-in;
         &:hover {
             background: $aHover;
+            color: #fff;
         }
         @include screen('mobile') {
             padding: 0;

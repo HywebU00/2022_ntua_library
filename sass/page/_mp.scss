@@ -23,27 +23,118 @@
         min-width: 120px;
         padding: .4em 1em;
         color: $color-word;
-        // &:after {
-        //     content: "";
-        //     display: block;
-        //     position: absolute;
-        //     right: 0;
-        //     top: calc(50% - .5em);
-        //     width: 1em;
-        //     height: 1em;
-        //     background: url(../images/icon/icon_arrow_right.svg) no-repeat;
-        //     background-size: contain;
-        //     transition: .3s ease-in;
-        // }
+        transform: perspective(1px) translateZ(0);
+        transition: .2s;
+        overflow: hidden;
+        &:after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border: 2px solid #FFF;
+            transform: rotate(45deg);
+            position: absolute;
+            right: -10px;
+            top: calc(50% - 4px);
+            border-left: none;
+            border-bottom: none;
+            transition: .3s ease-out;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: $secondaryColor;
+            -webkit-transform: scale(0);
+            transform: scale(0);
+            -webkit-transition-property: transform;
+            transition-property: transform;
+            -webkit-transition-duration: 0.2s;
+            transition-duration: 0.2s;
+            -webkit-transition-timing-function: ease-out;
+            transition-timing-function: ease-out;
+        }
         &:hover,
         &:focus {
-            background: $linkColor // &:after {
-            //     transform: translateX(3px);
-            // }
+            color: #fff;
+            &:before {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+            }
+            &:after {
+                right: 15px;
+            }
         }
     }
 }
 
+// a.more {
+//     display: block;
+//     width: 10em;
+//     text-align: center;
+//     height: 2.5em;
+//     margin: .5em auto .5em;
+//     line-height: 2.5;
+//     color: $primaryColor;
+//     border: 1px solid $primaryColor;
+//     text-align: center;
+//     overflow: hidden;
+//     vertical-align: middle;
+//     -webkit-transform: perspective(1px) translateZ(0);
+//     transform: perspective(1px) translateZ(0);
+//     box-shadow: 0 0 1px transparent;
+//     position: relative;
+//     -webkit-transition-property: color;
+//     transition-property: color;
+//     -webkit-transition-duration: 0.2s;
+//     transition-duration: 0.2s;
+//     &:after {
+//         content: "";
+//         width: 12px;
+//         height: 12px;
+//         border: 2px solid #FFF;
+//         transform: rotate(45deg);
+//         position: absolute;
+//         right: -10px;
+//         top: 14px;
+//         border-left: none;
+//         border-bottom: none;
+//         transition: .3s ease-out;
+//     }
+//     &:before {
+//         content: "";
+//         position: absolute;
+//         z-index: -1;
+//         top: 0;
+//         left: 0;
+//         right: 0;
+//         bottom: 0;
+//         background: $primaryColor;
+//         -webkit-transform: scale(0);
+//         transform: scale(0);
+//         -webkit-transition-property: transform;
+//         transition-property: transform;
+//         -webkit-transition-duration: 0.2s;
+//         transition-duration: 0.2s;
+//         -webkit-transition-timing-function: ease-out;
+//         transition-timing-function: ease-out;
+//     }
+//     &:hover,
+//     &:focus,
+//     &.active {
+//         color: white;
+//         &:before {
+//             -webkit-transform: scale(1);
+//             transform: scale(1);
+//         }
+//         &:after {
+//             right: 15px;
+//         }
+//     }
+// }
 .menusliderBlock {
     display: flex;
     width: 100%;
@@ -69,9 +160,19 @@
     position: relative;
     background: url(../images/bg01.png) no-repeat top left;
     background-size: 200px;
-    // 待寫
+    @include screen('mobile') {
+        background: none;
+    }
     &:before {
         content: "";
+        position: absolute;
+        right: 0;
+        top: -100px;
+        display: block;
+        width: 350px;
+        height: 500px;
+        background: url(../images/bg02.png) no-repeat bottom right;
+        background-size: cover;
     }
     .container {
         display: flex;
@@ -168,10 +269,12 @@
 
 //讀者服務
 .reader_service {
+    position: relative;
+    z-index: 1;
     margin: 0 auto;
     max-width: 1400px;
     background-color: $color-bg;
-    background: linear-gradient(90deg, rgba(224, 217, 209, 0.6) 0%, rgba(224, 217, 209, 0) 40%);
+    background: linear-gradient(90deg, rgba($linkColor, 0.6) 0%, rgba($color-bg, 1) 40%);
     @include screen('mobile') {
         background: linear-gradient(180deg, rgba($linkColor, 0.6) 0%, rgba($color-bg, 1) 40%);
     }
@@ -275,6 +378,12 @@
         @include screen('mobile') {
             min-width: auto;
         }
+        &:first-of-type {
+            border-radius: 4px 0 0 4px;
+        }
+        &:last-of-type {
+            border-radius: 0 4px 4px 0;
+        }
     }
     .tabContent {
         padding: 40px 10px 0;
@@ -331,8 +440,10 @@
             position: absolute;
             top: 0;
             left: 300px;
-            background: url(../images/bg02.png) no-repeat top left;
-            background-size: cover;
+            background-image: linear-gradient(0deg, rgba(254, 252, 249, 1) 0%, rgba(254, 252, 249, 0) 50%), url(../images/bg02.png);
+            background-repeat: no-repeat;
+            background-position: bottom left, top left;
+            //background-size: cover;
             @include screen('mobile') {
                 left: 0;
             }
@@ -389,11 +500,12 @@
         width: 118px;
         height: 160px;
         padding: .5em;
-        background: url(../images/title_bg01.png) no-repeat top left;
+        background: url(../images/title_bg01.svg) no-repeat top left;
         background-size: cover;
         text-align: center;
         display: flex;
         align-items: flex-end;
+        transform-origin: right top;
     }
     .tabSet {
         margin: 0;
@@ -423,6 +535,7 @@
         text-align: center;
         display: flex;
         align-items: flex-end;
+        transform-origin: right top;
     }
     .linkBlock {
         flex: 1 1 auto;
