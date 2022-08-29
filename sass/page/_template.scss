@@ -93,15 +93,18 @@ body {
 ////////////////////////////////////////////////////////////
 // 為了與首頁區隔，請在內頁加上innerpage ClassName
 .innerpage {
-    >.container {
-        @include gutter(); //gutter 代表左右要留白
-        display: flex;
-        padding-top: 1em;
-    }
+    padding: 1em 0 2em 0;
+    display: flex;
+    // >.container {
+    //     @include gutter(); //gutter 代表左右要留白
+    //     display: flex;
+    //     padding-top: 1em;
+    // }
     .center_block {
         flex: none;
         flex-basis: 100%;
         max-width: 100%;
+        margin-top: 2em;
     }
     .left_block {
         flex: none;
@@ -118,7 +121,7 @@ body {
         +.center_block {
             flex: auto;
             flex-basis: calc(100% - 300px);
-            max-width: calc(100% - 300px);
+            max-width: 900px;
         }
         @include screen('tablet') {
             display: none;
@@ -201,11 +204,12 @@ body {
             max-width: 60px;
             height: 60px;
             font-size: 0;
-            background: #fff url(../images/icon/icon_man.svg) no-repeat center;
-            background-size: 30px;
+            background: #fff url(../images/basic/icon_user.svg) no-repeat center;
+            background-size: 28px;
             border-radius: 0;
             &:hover {
-                background: #fff url(../images/icon/icon_man.svg) no-repeat center;
+                background: #fff url(../images/basic/icon_user.svg) no-repeat center;
+                background-size: 28px;
             }
         }
     }
@@ -270,7 +274,7 @@ body {
                 position: absolute;
                 width: 8px;
                 height: 8px;
-                background-color: $lightColor;
+                background-color: $primaryColor;
                 left: 0;
                 top: calc(50% - 4px);
             }
@@ -329,6 +333,7 @@ body {
             padding: .5em 1.2em;
             min-width: 90px;
             display: inline-block;
+            color: $color-word;
             &:hover {
                 background: darken($primaryColor, 10);
             }

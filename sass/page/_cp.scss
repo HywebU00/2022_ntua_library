@@ -1,10 +1,10 @@
 @charset "utf-8";
-
 // 文章標題
 h1.title,
 h2.title {
-    line-height: 1.25em;
+    line-height: 1.5em;
     margin: .4em 0;
+    font-size: 1.875em;
 }
 
 // .tt{ color: #222; }
@@ -18,20 +18,17 @@ h2.title {
         background: #F1F1F1;
         overflow: hidden;
         padding: .5em .5em .2em;
-
         img {
             float: none;
             width: 100%;
             margin: 0;
             display: block;
         }
-
         span {
             text-align: center;
             display: block;
             font-size: .938em;
         }
-
         @include screen('mobile') {
             float: none;
             max-width: 100%;
@@ -41,31 +38,26 @@ h2.title {
             margin-bottom: .5em;
         }
     }
-
     table {
         background: #FFF;
     }
-
     img {
         &.float_left {
             float: left;
             margin: 0px 1em 1em 0;
             width: auto;
             max-width: 55%;
-
             @include screen('mobile') {
                 float: none;
                 max-width: 100%;
                 margin: 0px auto;
             }
         }
-
         &.float_right {
             float: right;
             margin: 0px 0 1em 1em;
             width: auto;
             max-width: 55%;
-
             @include screen('mobile') {
                 float: none;
                 max-width: 100%;
@@ -73,18 +65,15 @@ h2.title {
             }
         }
     }
-
     a {
         @include aSetting;
     }
-
     ol,
     ul {
         &.no-style {
             @include li-reset;
         }
     }
-
     .info_list {
         @include make-xs-column(12);
         @include make-sm-column(8);
@@ -93,13 +82,11 @@ h2.title {
         @include gutter();
         padding-top: 1em;
         padding-bottom: 1em;
-
         ul {
             list-style: none;
             padding: 0;
             margin: 0;
         }
-
         li {
             position: relative;
             padding: 0 0 0 2em;
@@ -115,7 +102,6 @@ h2.title {
             }
         }
     }
-
     .registration {
         @include make-xs-column(12);
         @include make-sm-column(4);
@@ -124,49 +110,40 @@ h2.title {
         @include gutter();
         padding-top: 1em;
         padding-bottom: 1em;
-
         .btn {
             padding: .65em 3em;
             transition: all .3s;
             background: $primaryColor;
             color: #fff;
-
             &:hover,
             &:focus {
                 background: $secondaryColor;
                 box-shadow: 0 0px 0px 2px $secondaryColor inset;
             }
         }
-
         .amount {
             list-style: none;
             padding: .5em 0;
-
             .num {
                 font-weight: bold;
                 color: $primaryColor;
             }
         }
     }
-
     .activity_content {
         clear: both;
-
         &:after {
             content: "";
             display: block;
             clear: both;
         }
     }
-
     .list_title {
         font-weight: bold;
     }
-
     .agree_grp {
         text-align: center;
     }
-
     .back,
     .next {
         min-width: 120px;
@@ -174,15 +151,12 @@ h2.title {
         margin-bottom: 1em;
         border: 0;
     }
-
     .back {
         background: darken($color-gray, 10);
-
         &:hover {
             background: darken($color-gray, 20);
         }
     }
-
     .next {
         background: $primaryColor;
     }
@@ -193,27 +167,23 @@ h2.title {
     width: 100%;
     margin: 0 auto 2em;
     @include clearfix();
-
     h3 {
         font-size: 1.5em;
         padding: 12px 0px 15px 0px;
         margin: 0.5em 0px 0.2em;
         border-bottom: 1px solid $primaryColor;
     }
-
     ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
     }
-
     li {
         display: flex;
         flex-wrap: wrap;
         position: relative;
         padding: .5em 0 .5em 1.5em;
         border-bottom: solid 1px #eee;
-
         &:before {
             content: '·';
             font-size: 2em;
@@ -225,12 +195,10 @@ h2.title {
             left: .1em;
             color: #666;
         }
-
         .file_name {
             line-height: 1.8em;
             margin: .2em .5em .2em 0;
             color: #222;
-
             ~span {
                 flex: 0 0 auto;
                 margin: .2em;
@@ -238,7 +206,6 @@ h2.title {
                 line-height: 1.5em;
                 vertical-align: middle;
                 color: #666;
-
                 a {
                     color: #fff;
                     display: inline-block;
@@ -246,7 +213,6 @@ h2.title {
                 }
             }
         }
-
         $fileType: doc,
         docx,
         odt,
@@ -266,7 +232,6 @@ h2.title {
         mp4,
         pdf,
         other;
-
         @each $fileType in $fileType {
             span.file_#{$fileType} {
                 a {
@@ -274,7 +239,6 @@ h2.title {
                     font-weight: bold;
                     padding: .2em .8em;
                     border-radius: 3px;
-
                     &:hover,
                     &:focus {
                         color: #fff;
@@ -282,122 +246,101 @@ h2.title {
                 }
             }
         }
-
         span {
-
             &.file_doc,
             &.file_docx,
             &.file_odt {
                 a {
                     background: #275cb7;
-
                     &:hover,
                     &:focus {
                         background: darken(#275cb7, 5%);
                     }
                 }
             }
-
             &.file_xls,
             &.file_xlsx,
             &.file_csv,
             &.file_ods {
                 a {
                     background: #387947;
-
                     &:hover,
                     &:focus {
                         background: darken(#387947, 5%);
                     }
                 }
             }
-
             &.file_ppt,
             &.file_pptx,
             &.file_odp,
             &.file_pdf {
                 a {
                     background: #c55a3b;
-
                     &:hover,
                     &:focus {
                         background: darken(#c55a3b, 5%);
                     }
                 }
             }
-
             &.file_pdf {
                 a {
                     background: #c00;
-
                     &:hover,
                     &:focus {
                         background: darken(#c00, 5%);
                     }
                 }
             }
-
             &.file_zip {
                 a {
                     background: #eb712e;
-
                     &:hover,
                     &:focus {
                         background: darken(#eb712e, 5%);
                     }
                 }
             }
-
             &.file_txt,
             &.file_other {
                 a {
                     background: #555;
-
                     &:hover,
                     &:focus {
                         background: darken(#555, 5%);
                     }
                 }
             }
-
             &.file_mov {
                 a {
                     background: #009999;
-
                     &:hover,
                     &:focus {
                         background: darken(#009999, 5%);
                     }
                 }
             }
-
             &.file_mp3,
             &.file_mp4 {
                 a {
                     background: #088ecc;
-
                     &:hover,
                     &:focus {
                         background: darken(#088ecc, 5%);
                     }
                 }
             }
-
             &.file_jpg {
                 a {
                     background: #6c29a4;
-
                     &:hover,
                     &:focus {
                         background: darken(#6c29a4, 5%);
                     }
                 }
             }
-
             &.file_wmv {
                 a {
                     background: #430a1f;
-
                     &:hover,
                     &:focus {
                         background: darken(#430a1f, 5%);
@@ -412,27 +355,23 @@ h2.title {
 .web_link {
     margin: 1em 0;
     @extend %clearfix;
-
     h3 {
         font-size: 1.5em;
         padding: 12px 0px 15px 0px;
         margin: 0.5em 0px 0.2em;
         border-bottom: 1px solid $primaryColor;
     }
-
     ol,
     ul {
         list-style-type: none;
         padding: 0;
         margin: 0;
     }
-
     li {
         position: relative;
         padding: .5em 0;
         border-bottom: solid 1px #eee;
         padding-left: 1.5em;
-
         &:before {
             content: '·';
             font-size: 2em;
@@ -444,7 +383,6 @@ h2.title {
             left: .1em;
             color: #666;
         }
-
         a {
             padding: .2em 0px;
             display: block;
@@ -465,15 +403,12 @@ h2.title {
     flex-wrap: wrap;
     @extend %clearfix;
     box-sizing: border-box;
-
     li {
         flex: 1 1 33.33333%;
         margin-bottom: .5em;
-
         @include screen('tablet') {
             flex: 1 1 50%;
         }
-
         @include screen('mobile') {
             flex: 1 1 100%;
         }
@@ -487,7 +422,6 @@ h2.title {
         margin: 0.5em 0px 0.2em;
         border-bottom: 1px solid $primaryColor;
     }
-
     ol,
     ul {
         display: flex;
@@ -496,23 +430,18 @@ h2.title {
         padding: 1em 0;
         overflow: hidden;
     }
-
     li {
         flex-basis: 25%;
         padding: 0 15px 1em;
-
         @include screen('tablet') {
             flex-basis: 33.33333%;
         }
-
         @include screen('mobile') {
             flex-basis: 50%;
         }
-
         .img-container {
             @include aspect-ratio(3, 2);
         }
-
         .caption {
             text-align: center;
             font-size: .938em;
