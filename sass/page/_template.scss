@@ -105,6 +105,7 @@ body {
         flex-basis: 100%;
         max-width: 100%;
         margin-top: 2em;
+        padding: 0 15px;
     }
     .left_block {
         flex: none;
@@ -466,6 +467,10 @@ body {
             }
         }
     }
+}
+
+.lp {
+    padding-top: 1em;
 }
 
 //近期活動 樣式一
