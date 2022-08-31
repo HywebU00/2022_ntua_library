@@ -26,7 +26,6 @@ body {
     position: relative;
     background-color: $color-bg;
     @include screen('mobile') {
-        background: #FFF;
         overflow: hidden;
         overflow-y: auto;
     }
@@ -100,6 +99,19 @@ body {
     //     display: flex;
     //     padding-top: 1em;
     // }
+    h2.title {
+        position: relative;
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            display: block;
+            height: 3px;
+            width: 74px;
+            background-color: $primaryColor;
+        }
+    }
     .center_block {
         flex: none;
         flex-basis: 100%;
@@ -112,6 +124,11 @@ body {
         flex-basis: 260px;
         max-width: 260px;
         margin-right: 40px;
+        @include screen('tablet') {
+            flex-basis: 220px;
+            max-width: 220px;
+            margin-right: 20px;
+        }
         &.hidden {
             +.center_block {
                 flex: none;
@@ -126,8 +143,11 @@ body {
             @media screen and (max-width: 1200px) {
                 max-width: calc(100% - 300px);
             }
+            @include screen('tablet') {
+                max-width: calc(100% - 240px);
+            }
         }
-        @include screen('tablet') {
+        @include screen('mobile') {
             display: none;
             +.center_block {
                 flex: none;
@@ -470,10 +490,6 @@ body {
             }
         }
     }
-}
-
-.lp {
-    padding-top: 1em;
 }
 
 //近期活動 樣式一
