@@ -139,7 +139,7 @@ $(function() {
         // lazyLoad: 'ondemand',
         // ease: 'ease',
         responsive: [{
-            breakpoint: 768,
+            breakpoint: 1024,
             settings: {
                 slidesToShow: 2,
                 slidesToScroll: 2,
@@ -150,16 +150,8 @@ $(function() {
             breakpoint: 545,
             settings: {
                 arrows: true,
-                slidesToShow: 2,
-                slidesToScroll: 2
-            }
-        }, {
-            breakpoint: 480,
-            settings: {
-                arrows: true,
                 slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: false
+                slidesToScroll: 1
             }
         }]
     });

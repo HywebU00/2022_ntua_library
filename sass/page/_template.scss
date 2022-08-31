@@ -123,6 +123,9 @@ body {
             flex: auto;
             flex-basis: calc(100% - 300px);
             max-width: 900px;
+            @media screen and (max-width: 1200px) {
+                max-width: calc(100% - 300px);
+            }
         }
         @include screen('tablet') {
             display: none;
