@@ -951,32 +951,69 @@ body {
 }
 
 //
-.participant {
-    clear: both;
-    //border:1px solid $color-gray;
-    padding: .5em 2em;
-    ul {
-        list-style: none;
-        padding-left: 0;
+// .participant {
+//     clear: both;
+//     //border:1px solid $color-gray;
+//     padding: .5em 2em;
+//     ul {
+//         list-style: none;
+//         padding-left: 0;
+//     }
+//     li {
+//         border-bottom: 1px dashed #DDD;
+//         padding: 1em 0;
+//     }
+//     .result_title {
+//         display: inline-block;
+//         min-width: 150px;
+//         @include screen('xs_mobile') {
+//             &:after {
+//                 content: "：";
+//             }
+//         }
+//     }
+//     .result_content {
+//         display: inline-block;
+//         color: darken($primaryColor, 10);
+//         @include screen('xs_mobile') {
+//             display: block;
+//         }
+//     }
+// }
+.select_periodical {
+    margin-bottom: 1em;
+}
+
+.periodical {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    @include screen('mobile') {
+        justify-content: center;
     }
-    li {
-        border-bottom: 1px dashed #DDD;
-        padding: 1em 0;
+    .periodical_cover {
+        display: block;
+        width: 300px;
+        max-width: 100%;
+        padding: 8px;
+        background-color: #fff;
+        border: 1px solid $color-gray;
     }
-    .result_title {
-        display: inline-block;
-        min-width: 150px;
-        @include screen('xs_mobile') {
-            &:after {
-                content: "：";
-            }
-        }
-    }
-    .result_content {
-        display: inline-block;
-        color: darken($primaryColor, 10);
-        @include screen('xs_mobile') {
-            display: block;
+    .periodical_download {
+        font-size: 1.25em;
+        letter-spacing: 0.02em;
+        border-radius: 4px;
+        margin: .5em 1em;
+        padding: 1.2em 2em 1.2em 3.6em;
+        background: $primaryColor url(../images/icon/icon_file.svg) left 1.5em center no-repeat;
+        background-size: 36px;
+        color: $color-word;
+        border: 0;
+        transition: .2s ease-in;
+        &:hover {
+            color: #fff;
+            background: darken($primaryColor, 20) url(../images/icon/icon_file2.svg) left 1.5em center no-repeat;
+            background-size: 36px;
         }
     }
 }
