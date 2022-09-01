@@ -141,9 +141,9 @@ $btn-radius:.2em;
     text-shadow: none !important;
     &:hover,
     &:focus {
-        color: darken($primaryColor, 30)!important;
-        background: #b5deff!important;
-        border: solid 1px #b5deff!important;
+        color: #fff!important;
+        background: darken($primaryColor, 30)!important;
+        border: solid 1px darken($primaryColor, 30)!important;
     }
 }
 

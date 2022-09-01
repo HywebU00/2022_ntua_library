@@ -115,9 +115,10 @@ h2.title {
             padding: .65em 3em;
             transition: all .3s;
             background: $primaryColor;
-            color: #fff;
+            color: $color-word;
             &:hover,
             &:focus {
+                color: #fff;
                 background: $secondaryColor;
                 box-shadow: 0 0px 0px 2px $secondaryColor inset;
             }
@@ -127,7 +128,7 @@ h2.title {
             padding: .5em 0;
             .num {
                 font-weight: bold;
-                color: $primaryColor;
+                color: darken($primaryColor, 10);
             }
         }
     }

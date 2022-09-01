@@ -951,39 +951,73 @@ body {
 }
 
 //
-// .participant {
-//     clear: both;
-//     //border:1px solid $color-gray;
-//     padding: .5em 2em;
-//     ul {
-//         list-style: none;
-//         padding-left: 0;
-//     }
-//     li {
-//         border-bottom: 1px dashed #DDD;
-//         padding: 1em 0;
-//     }
-//     .result_title {
-//         display: inline-block;
-//         min-width: 150px;
-//         @include screen('xs_mobile') {
-//             &:after {
-//                 content: "：";
-//             }
-//         }
-//     }
-//     .result_content {
-//         display: inline-block;
-//         color: darken($primaryColor, 10);
-//         @include screen('xs_mobile') {
-//             display: block;
-//         }
-//     }
-// }
+.participant {
+    clear: both;
+    //border:1px solid $color-gray;
+    padding: .5em 2em;
+    ul {
+        list-style: none;
+        padding-left: 0;
+    }
+    li {
+        border-bottom: 1px dashed #DDD;
+        padding: 1em 0;
+    }
+    .result_title {
+        display: inline-block;
+        min-width: 150px;
+        @include screen('xs_mobile') {
+            &:after {
+                content: "：";
+            }
+        }
+    }
+    .result_content {
+        display: inline-block;
+        color: darken($primaryColor, 10);
+        @include screen('xs_mobile') {
+            display: block;
+        }
+    }
+}
+
+//問卷調查
+.questionnaire {
+    td {
+        text-align: center;
+    }
+    .name {
+        text-align: left;
+    }
+    h3 {
+        background: $lightColor;
+        color: $color-word;
+        text-align: center;
+        padding: .5em;
+    }
+    .form_grid {
+        border-top: 0;
+    }
+    .form_title {
+        float: none;
+        width: 100%;
+    }
+    .form_content {
+        float: none;
+        width: 100%;
+        margin-left: 1em;
+    }
+    input[type="text"] {
+        width: auto;
+        margin: 0 .5em;
+    }
+}
+
 .select_periodical {
     margin-bottom: 1em;
 }
 
+//期刊
 .periodical {
     display: flex;
     align-items: flex-start;

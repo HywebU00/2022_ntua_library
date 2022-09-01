@@ -213,33 +213,58 @@
                 </div>
                 <!-- LP Start -->
                 <section class="lp">
-                    <!-- category -->
-                    <div class="category">
-                        <ul>
-                            <li><a href="#">標籤1</a></li>
-                            <li><a href="#">標籤2</a></li>
-                            <li><a href="#">標籤3</a></li>
-                            <li><a href="#">標籤4</a></li>
-                            <li><a href="#">標籤5</a></li>
-                            <li><a href="#">標籤6</a></li>
-                            <li><a href="#">標籤7</a></li>
-                            <li><a href="#">標籤8</a></li>
-                            <li><a href="#">標籤9</a></li>
-                            <li><a href="#">標籤10</a></li>
-                        </ul>
+                    <div class="search_grp flex-form">
+                        <div class="form_grp form_inline">
+                            <label for="selectSample" class="form_title">活動查詢：</label>
+                            <input name="username" id="mustSameAsId" type="text" accesskey="S" placeholder="活動查詢">
+                            <input name="" type="submit" title="查詢" value="查詢">
+                        </div>
+                        <div class="form_grp form_inline">
+                            <div class="form_title">起始日期：</div>
+                            <div class="form_content form_inline">
+                                <div class="datepick">
+                                    <input name="" type="date" value="" class="calendar" placeholder="開始日期">
+                                </div>
+                                <div class="datepick">
+                                    <input name="" type="date" value="" class="calendar" placeholder="結束日期">
+                                </div>
+                                <input name="" type="submit" title="進階查詢" value="進階查詢">
+                            </div>
+                        </div>
+                        <div class="check_grp form_inline">
+                            <div class="form_title">活動類別：</div>
+                            <label><input name="" type="checkbox" value="" checked="">全部</label>
+                            <label><input name="" type="checkbox" value="">藝文</label>
+                            <label><input name="" type="checkbox" value="">親子</label>
+                            <label><input name="" type="checkbox" value="">展覽</label>
+                            <label><input name="" type="checkbox" value="">說故事</label>
+                        </div>
+                        <div class="check_grp form_inline">
+                            <div class="form_title">活動狀態：</div>
+                            <label><input name="" type="checkbox" value="" checked="">全部</label>
+                            <label><input name="" type="checkbox" value="">報名中</label>
+                            <label><input name="" type="checkbox" value="">自由參加</label>
+                            <label><input name="" type="checkbox" value="">報名結束</label>
+                        </div>
                     </div>
-                    <div class="books_list">
+                    <div class="activities_list">
                         <ul>
                             <li>
                                 <div class="thumbnail">
                                     <a href="#">
+                                        <span class="library_tag">標籤</span>
                                         <div class="img-container">
-                                            <img src="images/book1.png">
+                                            <img src="https://via.placeholder.com/400x200?text=2:1">
                                         </div>
                                         <div class="caption">
-                                            <h3>書名</h3>
-                                            <time>2018-01-01</time>
-                                            <p>內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                                            <h3>親子說故事活動-小象能做的事</h3>
+                                            <ul class="time">
+                                                <li><span>活動日期：</span><time>2018-01-01</time><time>14:00~16:00</time></li>
+                                                <li><span>報名期限：</span><time>2018-01-01</time><time>17:00</time></li>
+                                            </ul>
+                                            <div class="status register">
+                                                <span>報名中</span><span class="people">66/80</span>
+                                            </div>
                                         </div>
                                     </a>
                                 </div>
@@ -247,13 +272,19 @@
                             <li>
                                 <div class="thumbnail">
                                     <a href="#">
+                                        <span class="library_tag">標籤</span>
                                         <div class="img-container">
-                                            <img src="images/book1.png">
+                                            <img src="images/demo/07.jpg" alt="">
                                         </div>
                                         <div class="caption">
-                                            <h3>書名</h3>
-                                            <time>2018-01-01</time>
-                                            <p>內容內容內容內容內容內容內容內容內容內容</p>
+                                            <h3>漫畫家創意讀書會</h3>
+                                            <ul class="time">
+                                                <li><span>活動日期：</span><time>2018-01-01</time><time>14:00~16:00</time></li>
+                                                <li><span>報名期限：</span><time>2018-01-01</time><time>17:00</time></li>
+                                            </ul>
+                                            <div class="status full">
+                                                <span>額滿</span><span class="people">50/50</span>
+                                            </div>
                                         </div>
                                     </a>
                                 </div>
@@ -261,13 +292,19 @@
                             <li>
                                 <div class="thumbnail">
                                     <a href="#">
+                                        <span class="library_tag">標籤</span>
                                         <div class="img-container">
-                                            <img src="images/book1.png">
+                                            <img src="images/demo/05.jpg" alt="">
                                         </div>
                                         <div class="caption">
-                                            <h3>書名</h3>
-                                            <time>2018-01-01</time>
-                                            <p>內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                                            <h3>親子說故事活動-小象能做的事</h3>
+                                            <ul class="time">
+                                                <li><span>活動日期：</span><time>2018-01-01</time><time>14:00~16:00</time></li>
+                                                <li><span>報名期限：</span><time>2018-01-01</time><time>17:00</time></li>
+                                            </ul>
+                                            <div class="status register">
+                                                <span>報名中</span><span class="people">66/80</span>
+                                            </div>
                                         </div>
                                     </a>
                                 </div>
@@ -275,97 +312,19 @@
                             <li>
                                 <div class="thumbnail">
                                     <a href="#">
+                                        <span class="library_tag">標籤</span>
                                         <div class="img-container">
-                                            <img src="images/book1.png">
+                                            <img src="images/demo/10.jpg" alt="">
                                         </div>
                                         <div class="caption">
-                                            <h3>書名</h3>
-                                            <time>2018-01-01</time>
-                                            <p>內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumbnail">
-                                    <a href="#">
-                                        <div class="img-container">
-                                            <img src="images/book1.png">
-                                        </div>
-                                        <div class="caption">
-                                            <h3>書名</h3>
-                                            <time>2018-01-01</time>
-                                            <p>內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumbnail">
-                                    <a href="#">
-                                        <div class="img-container">
-                                            <img src="images/book1.png">
-                                        </div>
-                                        <div class="caption">
-                                            <h3>書名</h3>
-                                            <time>2018-01-01</time>
-                                            <p>內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumbnail">
-                                    <a href="#">
-                                        <div class="img-container">
-                                            <img src="images/book1.png">
-                                        </div>
-                                        <div class="caption">
-                                            <h3>書名</h3>
-                                            <time>2018-01-01</time>
-                                            <p>內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumbnail">
-                                    <a href="#">
-                                        <div class="img-container">
-                                            <img src="images/book1.png">
-                                        </div>
-                                        <div class="caption">
-                                            <h3>書名</h3>
-                                            <time>2018-01-01</time>
-                                            <p>內容內容內容內容內容內容內容內容內容內容內容內容</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumbnail">
-                                    <a href="#">
-                                        <div class="img-container">
-                                            <img src="images/book1.png">
-                                        </div>
-                                        <div class="caption">
-                                            <h3>書名</h3>
-                                            <time>2018-01-01</time>
-                                            <p>內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容內容</p>
-                                        </div>
-                                    </a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="thumbnail">
-                                    <a href="#">
-                                        <div class="img-container">
-                                            <img src="images/book1.png">
-                                        </div>
-                                        <div class="caption">
-                                            <h3>書名</h3>
-                                            <time>2018-01-01</time>
-                                            <p>內容內容內容內容內容內容內容內容內容內容內容內容</p>
+                                            <h3>漫畫家創意讀書會</h3>
+                                            <ul class="time">
+                                                <li><span>活動日期：</span><time>2018-01-01</time><time>14:00~16:00</time></li>
+                                                <li><span>報名期限：</span><time>2018-01-01</time><time>17:00</time></li>
+                                            </ul>
+                                            <div class="status full">
+                                                <span>額滿</span><span class="people">50/50</span>
+                                            </div>
                                         </div>
                                     </a>
                                 </div>
@@ -379,11 +338,11 @@
                     <form action="">
                         <div class="form_inline">
                             <div class="total"> 共<span>308</span>筆資料，第<span>1/18</span>頁，每頁顯示 <select name="" id="" aria-label="每頁顯示">
-                                    <option value="">10</option>
-                                    <option value="">20</option>
-                                    <option value="">30</option>
-                                    <option value="">40</option>
-                                </select> 筆， <input type="button" value="確定" class="btn btn-submit">
+                                        <option value="">10</option>
+                                        <option value="">20</option>
+                                        <option value="">30</option>
+                                        <option value="">40</option>
+                                    </select> 筆， <input type="button" value="確定" class="btn btn-submit">
                             </div>
                         </div>
                     </form>
