@@ -33,6 +33,8 @@
         height: 180px;
         background: url(../images/bg03.png) no-repeat bottom right;
         background-size: cover;
+        animation: turnPage-1 .8s;
+        transform-origin: right center;
         @include screen('mobile') {
             content: none;
         }
@@ -404,5 +406,23 @@
                 }
             }
         }
+    }
+}
+
+@keyframes turnPage-1 {
+    0% {
+        transform: scaleX(1%) skew(0deg, 20deg);
+    }
+    100% {
+        transform: scaleX(100%) skew(0deg, 0deg);
+    }
+}
+
+@keyframes turnPage-2 {
+    0% {
+        transform: scaleX(1%) skew(0deg, -20deg);
+    }
+    100% {
+        transform: scaleX(100%) skew(0deg, 0deg);
     }
 }
