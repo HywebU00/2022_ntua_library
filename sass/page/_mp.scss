@@ -206,13 +206,11 @@
         flex: 1 1 auto;
         @include li-reset;
         display: flex;
-        justify-content: space-between;
-        @include screen('xs_mobile') {
-            flex-wrap: wrap;
-        }
+        flex-wrap: wrap;
     }
     li {
-        flex-basis: calc(25% - 6px);
+        flex-shrink: 0;
+        flex-basis: calc(25% - 10px);
         margin-bottom: .5em;
         min-height: 106px;
         background-color: $lightColor;
@@ -222,16 +220,21 @@
         align-items: center;
         justify-content: space-around;
         padding: 1em;
-        margin: 5px 3px;
-        @include screen('xs_mobile') {
-            flex-basis: calc(50% - 6px);
+        margin: 5px;
+        @include screen('mobile') {
+            flex-basis: calc(50% - 10px);
         }
+        // @include screen('xs_mobile') {
+        //     flex-basis: calc(100% - 10px);
+        // }
         .equipment {
             display: flex;
             align-items: flex-end;
             flex-wrap: wrap;
             justify-content: center;
             text-align: center;
+            width: 100%;
+            padding: .25em .5em;
             img {
                 height: 28px;
                 margin-right: 5px;
@@ -240,7 +243,7 @@
         .amount {
             font-size: 2em;
             margin-bottom: 15px;
-            font-size: 'Times New Roman', serif;
+            font-family: 'Times New Roman', serif;
         }
     }
     .link_otherInfo {
@@ -300,19 +303,15 @@
     }
     ul {
         display: flex;
+        flex-wrap: wrap;
         @include li-reset;
-        @include screen('xs_mobile') {
-            flex-wrap: wrap;
-        }
     }
     li {
-        flex: 1 1 20%;
+        flex-shrink: 0;
+        flex-basis: calc(20% - 6px);
         margin: 5px 3px;
         @include screen('xs_mobile') {
             flex-basis: calc(50% - 6px);
-        }
-        @media screen and (max-width: 400px) {
-            width: 100%;
         }
         a {
             display: flex;
@@ -488,7 +487,7 @@
                 time {
                     display: inline-block;
                     margin: 0 1em;
-                    font-size: .875em;
+                    font-size: .938rem;
                     font-weight: bold;
                 }
             }
@@ -520,11 +519,12 @@
         display: flex;
         align-items: flex-end;
         margin: 2em auto;
-        @include screen('mobile') {
+        @include screen('tablet') {
             flex-wrap: wrap;
         }
     }
     .title_h2 {
+        flex: 0 0 138px;
         position: relative;
         z-index: 2;
         margin: 5px 20px 5px 0;
@@ -539,7 +539,9 @@
         transform-origin: right top;
     }
     .linkBlock {
-        flex: 1 1 auto;
+        //flex: 1 auto;
+        overflow: hidden;
+        margin: 1em 0;
         ul {
             @include li-reset;
             display: flex;

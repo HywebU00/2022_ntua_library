@@ -45,15 +45,15 @@
                         color: $aHover;
                     }
                     .num {
-                        width: 1.5em;
+                        min-width: 1.5em;
                         text-align: right;
                         position: absolute;
                         top: 0;
                         left: 0;
-                        &:after {
-                            content: ".";
-                            display: inline-block;
-                        }
+                        // &:after {
+                        //     content: ".";
+                        //     display: inline-block;
+                        // }
                     }
                 }
                 span.dept {

@@ -350,26 +350,32 @@
 // }
 // 廣告輪播
 .adSlider {
-    @include gutter(70px);
-    margin-bottom: 20px;
+    @include gutter(80px);
+    //margin-bottom: 20px;
     @include screen('mobile') {
-        @include gutter();
+        @include gutter(60px);
     }
     .slick-prev {
-        background: url(../vendor/slick/icon_arrow_left_inverse.png) no-repeat center center;
-        background-size: 80%;
-        left: -15px;
+        background: url(../images/slick/icon_arrow_left_inverse.png) no-repeat center center;
+        background-size: 12px;
+        left: 5px;
         top: 0;
+        @include screen('mobile') {
+            left: 0;
+        }
     }
     .slick-next {
-        background: url(../vendor/slick/icon_arrow_right_inverse.png) no-repeat center center;
-        background-size: 80%;
-        right: -15px;
+        background: url(../images/slick/icon_arrow_right_inverse.png) no-repeat center center;
+        background-size: 12px;
+        right: 5px;
         top: 0;
+        @include screen('mobile') {
+            right: 0;
+        }
     }
     .img-container {
         width: 165px;
-        height: 55px;
+        height: 65px;
         margin: 0px 15px;
         a {
             display: block;

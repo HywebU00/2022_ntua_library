@@ -42,11 +42,10 @@ $(function() {
     });
     // 廣告輪播
     $('.adSlider').slick({
-        mobileFirst: true,
         dots: false,
         infinite: true,
         speed: 300,
-        slidesToShow: 2,
+        slidesToShow: 4,
         slidesToScroll: 1,
         autoplay: true,
         arrow: true,
@@ -54,23 +53,16 @@ $(function() {
         lazyLoad: 'ondemand',
         ease: 'ease',
         responsive: [{
-            breakpoint: 1200,
+            breakpoint: 996,
             settings: {
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                arrows: true
-            }
-        }, {
-            breakpoint: 768,
-            settings: {
-                slidesToShow: 4,
+                slidesToShow: 3,
                 slidesToScroll: 1,
                 arrows: true
             }
         }, {
             breakpoint: 575,
             settings: {
-                slidesToShow: 3,
+                slidesToShow: 2,
                 slidesToScroll: 1,
                 arrows: true
             }
