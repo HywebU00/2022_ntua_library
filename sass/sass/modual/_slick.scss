@@ -374,14 +374,17 @@
         }
     }
     .img-container {
-        width: 165px;
-        height: 65px;
+        // width: 165px;
+        // height: 65px;
+        @include aspect-ratio(4.6,
+        1);
         margin: 0px 15px;
         a {
             display: block;
             text-align: center;
             img {
                 margin: 0 auto;
+                object-fit: contain;
             }
         }
         &:focus {
