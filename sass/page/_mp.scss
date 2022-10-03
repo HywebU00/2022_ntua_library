@@ -542,6 +542,10 @@
         //flex: 1 auto;
         overflow: hidden;
         margin: 1em 0;
+        flex-basis: calc(100% - 170px);
+        @include screen('tablet') {
+            flex-basis: 100%;
+        }
         ul {
             @include li-reset;
             display: flex;
