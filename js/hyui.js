@@ -458,16 +458,19 @@ $(function() {
                 tiGap = 0,
                 tabItemLength = _tabItem.length,
                 tabItemWidth;
-            _tab.find('.active').next('.tabContent').show();
 
+            _tab.find('.active').next('.tabContent').show();
             _tabContent.css('top', tabItemHeight);
+
             _tab.height(tabContentHeight + tabItemHeight);
             tabItemWidth = (tabwidth - (tabItemLength - 1) * tiGap) / tabItemLength - 2;
             //_tabItem.width(tabItemWidth).css('margin-left', tiGap);
             _tabItem.width('auto').css('margin-left', tiGap);
             _tabItem.first().css('margin-left', 0);
             //_tabItem.last().css({ position: 'absolute', top: 0, right: 0 }).width(tabItemWidth);
-
+            if (ww > wwSmall) {
+                _tabContent.css('min-height', tabItemHeight * tabItemLength);
+            }
             _tabItem.focus(tabs); //改button後，前面改_tabItem
             _tabItem.click(tabs); //改button後，前面改_tabItem
             function tabs(e) {
