@@ -1,7 +1,6 @@
 .fatfooter {
     @extend %clearfix;
     overflow: hidden;
-    padding-bottom: 1em;
     margin: 0 auto;
     background: $fatfooterBgColor url(../images/fatfooter_bg.jpg) no-repeat center;
     background-size: cover;
@@ -63,7 +62,7 @@
         overflow: hidden;
         display: block;
         position: relative;
-        padding: 3em 0 0 0;
+        padding: 3em 0 1em 0;
         box-sizing: border-box;
         >ul>li {
             >a {
